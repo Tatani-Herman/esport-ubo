@@ -4,8 +4,11 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { BrowserRouter as Link } from "react-router-dom";
+import { useHistory } from "react-router";
 
 export default function LeagueCard({league}) {
+    const history = useHistory()
   return (
     <Card sx={{ minWidth: 345, width: 610 }} style={{ margin: "35px" }} >
       <CardActionArea onClick={() => {console.log("clicked!")}}>
