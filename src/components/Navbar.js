@@ -15,7 +15,8 @@ export default function NavBar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             A-Sport Démo UBO
           </Typography>
-          <Stack direction="row" spacing={3}>
+          <Stack direction="row" spacing={2}>
+          <Link style={{ textDecoration: "none" }} to="/teams">
             <Button
               style={{
                 fontSize: "16px",
@@ -29,7 +30,7 @@ export default function NavBar() {
             >
               TEAMS
             </Button>
-
+            </Link>
             <Link style={{ textDecoration: "none" }} to="/leagues">
             <Button
               style={{

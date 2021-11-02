@@ -19,7 +19,14 @@ export const fetchLeagues = createAsyncThunk(
       options
     );
     const data = await response.json();
-    return data;
+    const result = data.map((l) => {
+      return {
+        id: l.id,
+        name: l.name,
+        image_url: l.image_url,
+      };
+    });
+    return result;
   }
 );
 

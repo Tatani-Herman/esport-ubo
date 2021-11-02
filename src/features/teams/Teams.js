@@ -5,10 +5,10 @@ import Container from "@mui/material/Container";
 import Pagination from "@mui/material/Pagination";
 
 import TheCard from "../../components/TheCard";
-import { fetchLeagues } from "./leaguesSlice";
+import { fetchTeams } from "./teamsSlice";
 
-export default function Leagues() {
-  const leagues = useSelector((state) => state.leagues.leagues);
+export default function Teams() {
+  const teams = useSelector((state) => state.teams.teams);
   const dispatch = useDispatch();
 
   const [page, setPage] = useState(1);
@@ -18,24 +18,24 @@ export default function Leagues() {
   };
 
   useEffect(() => {
-    dispatch(fetchLeagues(page));
-  }, [page]);
-
-  useEffect(() => {
-    dispatch(fetchLeagues());
+    dispatch(fetchTeams());
   }, []);
 
-  useEffect(() => {}, [leagues]);
+  useEffect(() => {
+    dispatch(fetchTeams(page));
+  }, [page]);
+
+  useEffect(() => {}, [teams]);
 
   const renderCards = () => {
-    return leagues.map((l, key) => {
-      return <TheCard key={key} item={l} />;
+    return teams.map((t, key) => {
+      return <TheCard key={key} item={t} type="team" />;
     });
   };
 
   return (
     <Container maxWidth="sm">
-      <h1 style={{ margin: "40px auto", width: "20%" }}>Leagues</h1>
+      <h1 style={{ margin: "40px auto", width: "20%" }}>Teams</h1>
       <div
         style={{
           width: "100%",
@@ -46,7 +46,7 @@ export default function Leagues() {
           marginBottom: 80,
         }}
       >
-        {leagues && renderCards()}
+        {teams && renderCards()}
         <Pagination page={page} onChange={handleChange} count={10} />
       </div>
     </Container>

@@ -8,6 +8,10 @@ import {
   Redirect,
 } from "react-router-dom";
 
+import League from "./features/league/league";
+import Teams from "./features/teams/Teams";
+import Team from "./features/team/Team";
+
 function App() {
   return (
     <div style={{ height: "100%" }}>
@@ -27,6 +31,12 @@ function App() {
         <Route exact path="/leagues/:id">
             <League />
         </Route>
+        <Route exact path="/teams">
+            <Teams />
+          </Route>
+          <Route exact path="/teams/:id">
+            <Team />
+          </Route>
         </Switch>
       </Router>
       </div>
