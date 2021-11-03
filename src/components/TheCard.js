@@ -10,7 +10,7 @@ import { CardActionArea } from "@mui/material";
 import { useHistory } from "react-router";
 
 export default function TheCard({ item, type = "league" }) {
-  const endpoint = type == "league" ? "/leagues/" : "/teams/"
+  const endpoint = type === "league" ? "/leagues/" : "/teams/"
   const history = useHistory()
 
 
